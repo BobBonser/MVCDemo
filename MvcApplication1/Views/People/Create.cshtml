@@ -1,0 +1,8 @@
+﻿@model MvcApplication1.ViewModels.PersonViewModel
+
+<h2>Create</h2>
+@{ Html.RenderPartial("_Messages", Model); }
+@using (Html.BeginForm("Create", "People"))
+{
+    Html.RenderPartial("_PersonEditor", Model);
+}

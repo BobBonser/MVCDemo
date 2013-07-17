@@ -1,0 +1,13 @@
+# Folders #
+###################
+bin
+obj
+_ReSharper.MvcApplication1
+
+# mstest test results
+TestResults
+
+*.sou
+*.csproj.user
+*.vbproj.user
+*.DotSettings.user

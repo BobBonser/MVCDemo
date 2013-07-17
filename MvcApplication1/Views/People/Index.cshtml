@@ -1,0 +1,44 @@
+﻿@model MvcApplication1.ViewModels.PersonIndexViewModel
+
+
+<h2>List of People</h2>
+@{
+    Html.RenderPartial("_Messages", Model);
+}
+
+@if (Model.PersonViewModels.Count == 0)
+{
+    <div class="message-info">
+        <p>There are no people registered.</p>
+        <p>@Html.ActionLink("Add New Person", "Create")</p>
+    </div>
+} 
+else 
+{    
+    @Html.ActionLink("Add New Person", "Create")
+    <table>
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col">Last Name</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Date of Birth</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.PersonViewModels)
+            {
+                <tr>
+                    <td>@Html.ActionLink("Delete", "Delete", new { id = item.Id } )</td>
+                    <td>@Html.ActionLink("Edit", "Edit", new { id = item.Id } )</td>
+                    <td>@Html.DisplayFor(x => item.LastName)</td>
+                    <td>@Html.DisplayFor(x => item.FirstName)</td>
+                    <td>@Html.DisplayFor(x => item.DateOfBirth)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    
+
+}
